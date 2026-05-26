@@ -3,6 +3,6 @@
 NUM1=10
 NUM2=30
 
-SUM=$|(($NUM1+&NUM2))
+SUM=$|(($NUM1+$NUM2
 
-echo "sum is:$SUM"
+echo "Sum is : $SUM"
