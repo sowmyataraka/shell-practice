@@ -9,4 +9,5 @@ echo "ho is running this: $USER"
 echo "which directory: $PWD" 
 
 
+
  
