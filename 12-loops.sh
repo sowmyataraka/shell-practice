@@ -3,6 +3,7 @@
 USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
 LOGS_FILE="$LOGS_DIR/$0.log" # /home/ec2-user/shell-logs/10-logs.sh.log
+TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
 
 # Check root access or not
 if [ $USERID -ne 0 ]; then
@@ -14,13 +15,12 @@ fi
 # second arg -> exit code
 VALIDATE(){
     if [ $2 -ne 0 ]; then
-        echo "Installing $1 is ... FAILED"
+        echo "$TIMESTAMP [ERROR] Installing $1 is ... FAILED" |  tee -a $LOGS_FILES
         exit 1
     else
-        echo "Installing $1 is ... SUCCESS"
+        echo "$TIMESTAMP [INFO] Installing $1 is ... SUCCESS" | tee -a $LOGS_FILE
     fi
 }
-
 
 for package in $@
 do
