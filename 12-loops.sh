@@ -1,4 +1,4 @@
-#!/bin/bash 
+##!/bin/bash
 
 USERID=$(id -u)
 LOGS_DIR=/var/log/shell-script
@@ -22,11 +22,10 @@ VALIDATE(){
 }
 
 
-for package in $0
+for package in $@
 do
    echo "Installing $package"
 done
-
 
 
 
