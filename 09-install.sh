@@ -16,11 +16,16 @@ if [ $? -eq 0 ]; then
 else
    echo "Installing MySQL"
    dnf install mysql -y
- 
+   VALIDATE MYSQL $? 
+   if 
+   
+   dnf list installed nginx
    if [ $? -ne 0 ]; then 
-        echo "MySQL installation failed"
+        echo "nginx is already installed ..SKIPPING"
         exit 1
    else
-        echo "MySQL installation successful"
+        echo "Installing nginx"
+        dnf install nginx -y
+        VALIDATE MYASQL $?
   fi
-fi
+
